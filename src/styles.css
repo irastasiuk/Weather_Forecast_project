@@ -1,0 +1,84 @@
+.main {
+  display: block;
+  max-width: 600px;
+  margin: 100px auto;
+  background-image: linear-gradient(
+    to right,
+    rgb(237, 245, 255),
+    rgb(217, 231, 255)
+  );
+  padding: 30px 20px;
+  border-radius: 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+.btn {
+  background-color: rgb(48, 143, 252);
+  border-color: rgb(48, 143, 252);
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+}
+.btn:hover {
+  background-color: rgb(37, 124, 224);
+  border-color: rgb(37, 124, 224);
+}
+h1 {
+  padding-top: 10px;
+  font-size: 34px;
+}
+img {
+  width: 110px;
+}
+.main-information {
+  background-color: rgb(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+.current-weather {
+  margin: 40px 0px;
+}
+
+.current-date {
+  font-size: 14px;
+  color: rgba(41, 41, 48, 0.5);
+}
+.country {
+  font-size: 22px;
+  color: rgba(41, 41, 48, 0.5);
+  font-weight: 300;
+}
+.weather-pic {
+  max-width: 50px;
+}
+.week-weather {
+  text-align: center;
+}
+.day-of-the-week {
+  font-weight: bold;
+}
+.additional-weather-value {
+  padding-top: 40px;
+  padding-left: 20px;
+  color: rgb(85, 85, 85);
+}
+.selected {
+  font-size: 26px !important;
+  font-weight: 500 !important;
+  /* margin: 0 0 0 0px; */
+  cursor: pointer;
+  color: black !important;
+}
+.c-f {
+  color: rgba(41, 41, 48, 0.5);
+  font-weight: 300;
+  font-size: 26px;
+  cursor: pointer;
+}
+#current-location {
+  color: rgb(48, 143, 252);
+  cursor: pointer;
+  text-align: center;
+  margin-top: 7px;
+}
+
+#current-location:hover {
+  font-weight: 500;
+}
