@@ -22,10 +22,10 @@
       crossorigin="anonymous"
     ></script>
     <link href="src/styles.css" rel="stylesheet" type="text/css" />
-    <title>Document</title>
+    <title>Weather Forecast</title>
   </head>
   <body>
-    <div class="main">
+    <div class="container">
       <form class="search row" id="search-input">
         <div class="col col-md-6">
           <input
@@ -52,9 +52,12 @@
         <div class="city-temperature">
           <div class="city-data row">
             <div class="col col-md-8 main-information">
-              <div class="current-date" id="current-date-and-time">
+              <div class="date-and-description" id="current-date-and-time">
                 Today 09.08 | 16:42
               </div>
+              <div class="date-and-description" id="weather-description">
+              Clear sky
+              </div> 
               <div class="row">
                 <div class="col col-md-4 current-weather-pic">
                   <img src="media/sun.png" />
@@ -64,18 +67,17 @@
                     <span id="city-name"> City </span>,
                     <span class="country" id="country-name">Country</span>
                     <br />
-                    <span id="current-temperature">--°</span>
+                    <span id="current-temperature"></span>
                     <span class="selected c-f" id="celsius">C</span>
-
-                    <span class="c-f f" id="fahrenheit">|°F</span>
+                    <span class="c-f f" id="fahrenheit">| F</span>
                   </h1>
                 </div>
               </div>
             </div>
             <div class="additional-weather-value col col-md-4">
-              <div class="precititation">Precititation: 42%</div>
-              <div class="wind">Wind: 3.2 km/h</div>
-              <div class="index-uv">Index UV: 3</div>
+              <div>Humidity: <span id="humidity">42</span>%</div>
+              <div>Wind: <span id="wind">3.2</span> km/h</div>
+              <!--<div class="index-uv">Index UV: 3</div>-->
             </div>
           </div>
         </div>

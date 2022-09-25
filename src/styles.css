@@ -4,7 +4,7 @@ a {
   font-family: monospace;
   color: rgb(48, 143, 252);
 }
-.main {
+.container {
   display: block;
   max-width: 600px;
   margin: 100px auto 0;
@@ -47,10 +47,14 @@ img {
   margin: 40px 0px;
 }
 
-.current-date {
+.date-and-description {
   font-size: 14px;
   color: rgba(41, 41, 48, 0.5);
 }
+.date-and-description:first-letter {
+  text-transform: capitalize;
+}
+
 .country {
   font-size: 22px;
   color: rgba(41, 41, 48, 0.5);
@@ -80,7 +84,7 @@ img {
 .c-f {
   color: rgba(41, 41, 48, 0.5);
   font-weight: 300;
-  font-size: 26px;
+  font-size: 24px;
   cursor: pointer;
 }
 #current-location {

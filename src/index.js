@@ -63,6 +63,17 @@ function showWeather(response) {
   let currentCountryDisplay = document.querySelector("#country-name");
   currentCountryDisplay.innerHTML = currentCountryName;
 
+  let currentHumidity = document.querySelector("#humidity");
+  currentHumidity.innerHTML = response.data.main.humidity;
+
+  let currentWindSpeed = document.querySelector("#wind");
+  currentWindSpeed.innerHTML = response.data.wind.speed;
+
+  let currentWeatherDescription = document.querySelector(
+    "#weather-description"
+  );
+  currentWeatherDescription.innerHTML = response.data.weather[0].description;
+
   console.log(response.data);
 }
 
