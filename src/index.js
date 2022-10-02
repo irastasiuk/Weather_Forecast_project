@@ -125,7 +125,11 @@ function searchCity(city) {
 function getCityBySubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#city-search-input").value;
-  searchCity(city);
+  if (city) {
+    searchCity(city);
+  } else {
+    alert("Please, enter a city");
+  }
 }
 
 // Country names by codes
