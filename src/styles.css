@@ -2,15 +2,18 @@ h1 {
   padding-top: 10px;
   font-size: 34px;
 }
+
 a {
   text-decoration: none;
   margin-left: 20px;
   font-family: monospace;
   color: rgb(48, 143, 252);
 }
+
 img {
   width: 110px;
 }
+
 .container {
   display: block;
   max-width: 600px;
@@ -25,6 +28,7 @@ img {
   font-size: 14px;
   color: rgba(41, 41, 48, 0.5);
 }
+
 .date-and-description:first-letter {
   text-transform: capitalize;
 }
@@ -51,9 +55,10 @@ img {
 }
 
 .additional-weather-value {
-  padding-top: 40px;
-  padding-left: 20px;
-  color: rgb(85, 85, 85);
+  font-size: 15px;
+  padding-top: 60px;
+  padding-left: 40px;
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .forecast-weather {
@@ -87,6 +92,7 @@ img {
   cursor: pointer;
   color: black !important;
 }
+
 .c-f {
   color: rgba(41, 41, 48, 0.5);
   font-weight: 300;
@@ -96,6 +102,7 @@ img {
 
 #current-location {
   color: rgb(48, 143, 252);
+  font-size: 16px;
   cursor: pointer;
   text-align: center;
   margin-top: 7px;

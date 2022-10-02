@@ -19,22 +19,6 @@ function displayCurrentDateAndTime() {
   currentDateAndTime.innerHTML = `${day} ${date}.${month} | ${hours}:${minutes}`;
 }
 
-function convertToFahrenheit(event) {
-  let fahrenheitTemperatureValue = document.querySelector(
-    "#current-temperature"
-  );
-  fahrenheitTemperatureValue.innerHTML = `${tempData.far}°`;
-  celsiusTemperature.classList.remove("selected");
-  fahrenheitTemperature.classList.add("selected");
-}
-
-function convertToCelsius(event) {
-  let celsiusTemperatureValue = document.querySelector("#current-temperature");
-  celsiusTemperatureValue.innerHTML = tempData.cel + "°";
-  celsiusTemperature.classList.add("selected");
-  fahrenheitTemperature.classList.remove("selected");
-}
-
 function currentPositionCallback(position) {
   const lat = position.coords.latitude;
   const lon = position.coords.longitude;
@@ -45,6 +29,12 @@ function currentPositionCallback(position) {
 
 function getCurrentPosition(event) {
   navigator.geolocation.getCurrentPosition(currentPositionCallback);
+}
+
+function showUVindex(UVindex) {
+  let uv = UVindex;
+  let uvElement = document.querySelector("#uv-index");
+  uvElement.innerHTML = Math.round(uv);
 }
 
 function forecastDayFormat(timestamp) {
@@ -84,6 +74,8 @@ function showForecast(response) {
 
   forecastHtml = forecastHtml + `</div>`;
   forecastElement.innerHTML = forecastHtml;
+
+  showUVindex(response.data.current.uvi);
 }
 
 function getForecast(coordinates) {
@@ -96,11 +88,8 @@ function showWeather(response) {
   currentCityDisplay.innerHTML = response.data.name;
 
   let temperature = Math.round(response.data.main.temp);
-  let celsiusTemperatureValue = document.querySelector("#current-temperature");
-  celsiusTemperatureValue.innerHTML = `${temperature}°`;
-
-  tempData.cel = temperature;
-  tempData.far = Math.round(temperature * 1.8 + 32);
+  let temperatureValue = document.querySelector("#current-temperature");
+  temperatureValue.innerHTML = `${temperature}°`;
 
   let currentCountryCode = response.data.sys.country;
   let currentCountryName = countryCodes[currentCountryCode];
@@ -395,19 +384,13 @@ const countryCodes = {
 
 const apiKey = "c95d60a1e3adbeb286133f1ebebc2579";
 
-let tempData = {};
-
 // get html elemtns
 const currentLocation = document.querySelector("#current-location");
 const citySearchInput = document.querySelector("#search-input");
-const fahrenheitTemperature = document.querySelector("#fahrenheit");
-const celsiusTemperature = document.querySelector("#celsius");
 
 // add event listeners
 currentLocation.addEventListener("click", getCurrentPosition);
 citySearchInput.addEventListener("submit", getCityBySubmit);
-fahrenheitTemperature.addEventListener("click", convertToFahrenheit);
-celsiusTemperature.addEventListener("click", convertToCelsius);
 
 displayCurrentDateAndTime();
 searchCity("Kyiv");
