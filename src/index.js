@@ -47,6 +47,50 @@ function getCurrentPosition(event) {
   navigator.geolocation.getCurrentPosition(currentPositionCallback);
 }
 
+function forecastDayFormat(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
+function showForecast(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHtml = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHtml =
+        forecastHtml +
+        `
+    <div class="col">
+            <span class="day-of-the-week">${forecastDayFormat(
+              forecastDay.dt
+            )}</span>
+            <img class="weather-forecast-icon" src="http://openweathermap.org/img/wn/${
+              forecastDay.weather[0].icon
+            }@2x.png" />
+            <span class = "forecast-temperature-max">${Math.round(
+              forecastDay.temp.max
+            )}° </span>
+            <span class = "forecast-temperature-min"> ${Math.round(
+              forecastDay.temp.min
+            )}°</span>
+          </div>
+    `;
+    }
+  });
+
+  forecastHtml = forecastHtml + `</div>`;
+  forecastElement.innerHTML = forecastHtml;
+}
+
+function getForecast(coordinates) {
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showForecast);
+}
+
 function showWeather(response) {
   let currentCityDisplay = document.querySelector("#city-name");
   currentCityDisplay.innerHTML = response.data.name;
@@ -81,7 +125,7 @@ function showWeather(response) {
   );
   currentWeatherDescription.innerHTML = response.data.weather[0].description;
 
-  console.log(response.data);
+  getForecast(response.data.coord);
 }
 
 function searchCity(city) {
@@ -366,5 +410,4 @@ fahrenheitTemperature.addEventListener("click", convertToFahrenheit);
 celsiusTemperature.addEventListener("click", convertToCelsius);
 
 displayCurrentDateAndTime();
-
 searchCity("Kyiv");

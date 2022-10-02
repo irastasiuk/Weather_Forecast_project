@@ -1,50 +1,24 @@
+h1 {
+  padding-top: 10px;
+  font-size: 34px;
+}
 a {
   text-decoration: none;
   margin-left: 20px;
   font-family: monospace;
   color: rgb(48, 143, 252);
 }
+img {
+  width: 110px;
+}
 .container {
   display: block;
   max-width: 600px;
   margin: 100px auto 0;
-  background-image: linear-gradient(
-    to right,
-    rgb(237, 245, 255),
-    rgb(217, 231, 255)
-  );
   padding: 30px 20px;
   border-radius: 20px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-}
-.footer {
-  display: block;
-  max-width: 600px;
-  margin: 10px auto;
-}
-.btn {
-  background-color: rgb(48, 143, 252);
-  border-color: rgb(48, 143, 252);
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
-}
-.btn:hover {
-  background-color: rgb(37, 124, 224);
-  border-color: rgb(37, 124, 224);
-}
-h1 {
-  padding-top: 10px;
-  font-size: 34px;
-}
-img {
-  width: 110px;
-}
-.main-information {
-  background-color: rgb(255, 255, 255, 0.3);
-  border-radius: 10px;
-}
-.current-weather {
-  margin: 40px 0px;
 }
 
 .date-and-description {
@@ -55,25 +29,57 @@ img {
   text-transform: capitalize;
 }
 
+.current-weather {
+  margin: 40px 0px;
+}
+
 .country {
   font-size: 22px;
   color: rgba(41, 41, 48, 0.5);
   font-weight: 300;
 }
-.weather-pic {
-  max-width: 50px;
+
+.btn {
+  background-color: rgb(48, 143, 252);
+  border-color: rgb(48, 143, 252);
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
 }
-.week-weather {
-  text-align: center;
+
+.btn:hover {
+  background-color: rgb(37, 124, 224);
+  border-color: rgb(37, 124, 224);
 }
-.day-of-the-week {
-  font-weight: bold;
-}
+
 .additional-weather-value {
   padding-top: 40px;
   padding-left: 20px;
   color: rgb(85, 85, 85);
 }
+
+.forecast-weather {
+  text-align: center;
+  opacity: 0.85;
+  font-weight: 500;
+}
+
+.weather-forecast-icon {
+  display: block;
+  max-width: 50px;
+  margin: auto;
+}
+
+.forecast-temperature-max,
+.forecast-temperature-min {
+  font-size: 14px;
+  color: #000;
+  opacity: 0.6;
+}
+
+.forecast-temperature-min {
+  font-weight: normal;
+  opacity: 0.4;
+}
+
 .selected {
   font-size: 26px !important;
   font-weight: 500 !important;
@@ -87,6 +93,7 @@ img {
   font-size: 24px;
   cursor: pointer;
 }
+
 #current-location {
   color: rgb(48, 143, 252);
   cursor: pointer;
@@ -96,4 +103,10 @@ img {
 
 #current-location:hover {
   font-weight: 500;
+}
+
+.footer {
+  display: block;
+  max-width: 600px;
+  margin: 10px auto;
 }
